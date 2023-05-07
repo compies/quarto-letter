@@ -24,7 +24,7 @@ quarto install extension mcanouil/quarto-letter
 
 ## Usage
 
-To use the format, you can use the format name `letter-pdf`[^1].
+To use the format, you can use the format name `letter-pdf`
 For example:
 
 ```bash
@@ -37,6 +37,6 @@ or in your document yaml
 format: letter-pdf
 ```
 
-
+In order to use it easyly you have copy/fork this repository edit the `_extension.yml` with your personal information so you don't have to type it every time in your main qmd-file.
 
 You can view a preview of the rendered template at https://github.com/compies/quarto-letter/blob/main/Example/Example.pdf
