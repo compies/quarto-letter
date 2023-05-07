@@ -8,7 +8,7 @@ You can use this as a template to create a letter.
 To do this, use the following command:
 
 ```bash
-quarto use template mcanouil/quarto-letter
+quarto use template compies/quarto-letter
 ```
 
 This will install the extension and create an example qmd file and bibliography that you can use as a starting place for your article.
