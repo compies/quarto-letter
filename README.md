@@ -37,11 +37,6 @@ or in your document yaml
 format: letter-pdf
 ```
 
-It's possible to change the subject title and the subject suffix, e.g., for a French letter:
 
-```yaml
-subject-title: Objet
-subject-suffix: "&nbsp;:"
-```
 
 You can view a preview of the rendered template at https://github.com/compies/quarto-letter/blob/main/Example/Example.pdf
