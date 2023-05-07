@@ -44,6 +44,4 @@ subject-title: Objet
 subject-suffix: "&nbsp;:"
 ```
 
-You can view a preview of the rendered template at <https://m.canouil.dev/quarto-letter/>.
-
-[^1]: Currently only PDF is supported but HTML support will be added as soon as Paged.js is made available in [Quarto](https://quarto.org).
+You can view a preview of the rendered template at https://github.com/compies/quarto-letter/blob/main/Example/Example.pdf
