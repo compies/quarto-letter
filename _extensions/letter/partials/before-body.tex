@@ -1,8 +1,88 @@
-$if(author)$
-\signature{$author$}
-\address{${ by-author:_authors.tex() }}
+\setmainfont[SmallCapsFont={Latin Modern Roman Caps}]{Latin Modern Sans}
+\setsansfont[SmallCapsFont={Latin Modern Roman Caps}]{Latin Modern Sans}
+\makeatletter
+\@setplength{firstfootvpos}{275mm}
+\makeatother
+\renewcommand*\familydefault{\sfdefault}
+
+$if(subjectm)$
+\setkomavar{subject}{$for(subjectm)$$subjectm$ \\$endfor$}
 $endif$
-\begin{letter}{$for(address)$$address$$sep$\\$endfor$$if(subject)$\\ ~ \\$if(subject-title)$$subject-title$$else$Subject$endif$$if(subject-suffix)$$subject-suffix$$else$:$endif$ $subject$$endif$}
+$if(signature)$
+\setkomavar{signature}{$signature$}
+$endif$
+$if(fromname)$
+\setkomavar{fromname}{$fromname$}
+$endif$
+$if(fromaddress)$
+\setkomavar{fromaddress}{$for(fromaddress)$$fromaddress$\\$endfor$}
+$endif$
+$if(fromphone)$
+\setkomavar{fromphone}[\Telefon~]{$fromphone$}
+$endif$
+$if(frommobilephone)$
+\setkomavar{frommobilephone}[\Mobilefone~]{$frommobilephone$}
+$endif$
+$if(fromemail)$
+\setkomavar{fromemail}[\Letter~]{$fromemail$}
+$endif$
+\newfontfamily\notefont{LTe50607}
+\renewcommand*{\raggedsignature}{\raggedright}
+%\newcommand\textnote[1]{{\notefont #1}}
+\newkomavar{fromiban}
+\newkomavar{frombic}
+\newkomavar{subname}
+\setkomavar{fromiban}{$fromiban$}
+\setkomavar{frombic}{$frombic$}
+\setkomavar{frombank}{$frombank$}
+\setkomavar{subname}{$subname$}
+
+\setkomafont{fromname}{\notefont\LARGE}
+\setkomavar{firsthead}{%
+  \parbox{\textwidth}{
+  \raggedleft
+  {\usekomafont{fromname}\strut\ignorespaces\usekomavar{fromname}} \\[-.5\baselineskip]
+  {\usekomafont{fromrule}\rule{\textwidth}{\useplength{fromrulethickness}}}\\
+  {\footnotesize{\textsc{\usekomavar{subname}}}}}}
+
+\setkomavar{firstfoot}{\footnotesize%
+    \rule[3pt]{\textwidth}{.4pt} \\
+    \begin{tabular}[t]{l@{}}%
+        \Ifkomavarempty{fromname}
+        {}
+        {\usekomavar{fromname}
+        }\\
+        \Ifkomavarempty{fromaddress}
+        {}
+        {\usekomavar{fromaddress}
+        }\\
+    \end{tabular}%
+    \hfill
+    \begin{tabular}[t]{l@{}}%
+        \Ifkomavarempty{fromphone}
+        {}
+        {\usekomavar[\Telefon~]{fromphone}
+        }\\
+        \Ifkomavarempty{fromphone}
+        {}
+        {\usekomavar[\Mobilefone~]{frommobilephone}
+        }\\
+        \Ifkomavarempty{fromphone}
+        {}
+        {\usekomavar[\Letter~]{fromemail}
+        }\\
+    \end{tabular}
+    \Ifkomavarempty{frombank}
+        {}{%
+        \hfill
+        \begin{tabular}[t]{l@{}}%
+            IBAN: \usekomavar{fromiban}\\
+            BIC:\usekomavar{frombic}\\
+            \usekomavar{frombank}
+        \end{tabular}}}
+
+
+\begin{letter}{$for(address)$$address$$sep$\\$endfor$}
 $if(opening)$
 \opening{$opening$}
 $endif$
