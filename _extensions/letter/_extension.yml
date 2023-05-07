@@ -1,5 +1,5 @@
-title: Letter Format Template
-author: Mickaël Canouil
+title: Koma script Letter
+author: compies
 version: 1.0.0
 quarto-required: ">=1.2.280"
 contributes:
@@ -7,8 +7,53 @@ contributes:
     common:
       date: today
       date-format: long
+      signature: compies
+      subname: Carpenter
+      fromname: Karl Mamber
+      fromaddress:
+        - Musterstraße 12
+        - 12345 Musterhausen
+      fromphone: | 
+        08912345
+      frommobilephone: "+456-789"
+      fromemail: Karl##mamber@yahoo.com
+      fromiban: DE12 3456 7890 0000 0000 00 
+      frombic: BYSPK
+      frombank: Sparkasse 
     pdf:
-      documentclass: letter
+      pdf-engine: lualatex
+      fontenc:
+      mainfont: Latin Modern Sans
+      include-in-header:
+        - text: |
+            \usepackage{marvosym}
+            \usepackage{lmodern}
+      # mainfont: Latin Modern Roman
+      documentclass: scrlttr2
+      classoption:
+        - version=last
+        - headheight=28pt
+        - BCOR=0mm
+        - fontsize=11pt
+        - paper=a4
+        - headsepline=off
+        - parskip=half
+        - romalign=right        
+        - fromphone=on         
+        - frommobilephone=off
+        - fromfax=off           
+        - fromemail=off           
+        - fromurl=off             
+        - fromlogo=off            
+        - addrfield=on           
+        - backaddress=on         
+        - subject=beforeopening
+        - locfield=narrow     
+        - foldmarks=on     
+        - numericaldate=off     
+        - refline=narrow        
+        - firstfoot=on
+      lang: de
       geometry:
         - "margin=1in"
         - "bottom=1in"
@@ -18,4 +63,3 @@ contributes:
       template-partials:
         - "partials/before-body.tex"
         - "partials/after-body.tex"
-        - "partials/_authors.tex"
