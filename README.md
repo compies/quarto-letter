@@ -1,6 +1,6 @@
-# Letter Format Template
+# Scrlttr2 Format Template
 
-This is a Quarto template that assists you in creating a manuscript using the letter format.
+This is a Quarto template that assists you in creating a letter with scrlttr2
 
 ## Creating a New Letter
 
